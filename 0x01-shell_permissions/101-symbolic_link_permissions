@@ -1,2 +1,2 @@
 #!/bin/bash
-chomd -Rh _hello vincent:staff
+chomd -Rh vincent:staff _hello
