@@ -1,2 +1,2 @@
 #!/bin/bash
-head -n3 ./icata | tail -n1
+head -n4 ./icata | tail -n1
