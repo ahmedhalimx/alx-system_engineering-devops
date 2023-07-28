@@ -1,0 +1,63 @@
+#!/usr/bin/env bash
+# the script accepts an argument from the user:
+#   if argument == `start`:
+#     1. Starts manage_my_process script.
+#     2. Creates 'my_process.pid' file at /var/run/.
+#     3. Prints "manage_my_process started".
+#   if argument == `stop`:
+#     1. Stops manage_my_process.
+#     2. Deletes the file /var/run/my_process.pid
+#     3. Displays "manage_my_process stopped".
+#   if argument == `restart`:
+#     1. Stops manage_my_process.
+#     2. Deletes my_process.pid file.
+#     3. Starts manage_my_process again.
+#     4. Creates 'my_process.pid' file at /var/run/my_process.pid.
+#     5. Displays "manage_my_process restarted"
+#   If invalid or no arguments are passed, displays:
+#   "Usage: manage_my_process {start|stop|restart}", then exits.
+
+if [ "${1}" == "start" ]
+then
+    ./manage_my_process &
+    touch /var/run/my_process.pid
+    echo "$!" > /var/run/my_process.pid
+    echo "manage_my_process started"
+elif [ "${1}" == "stop" ]
+then
+    echo "manage_my_process stopped"
+    kill "$(cat /var/run/my_process.pid)"
+    rm /var/run/my_process.pid
+elif [ "${1}" == "restart" ]
+then
+    kill "$(cat /var/run/my_process.pid)"
+    rm /var/run/my_process.pid
+    ./manage_my_process &
+    touch /var/run/my_process.pid
+    echo "$!" > /var/run/my_process.pid
+    echo "manage_my_process restarted"
+else
+    echo "Usage: manage_my_process {start|stop|restart}"
+fi
+if [ "${1}" == "start" ]
+then
+    ./manage_my_process &
+    touch /var/run/my_process.pid
+    echo "$!" > /var/run/my_process.pid
+    echo "manage_my_process started"
+elif [ "${1}" == "stop" ]
+then
+    echo "manage_my_process stopped"
+    kill "$(cat /var/run/my_process.pid)"
+    rm /var/run/my_process.pid
+elif [ "${1}" == "restart" ]
+then
+    kill "$(cat /var/run/my_process.pid)"
+    rm /var/run/my_process.pid
+    ./manage_my_process &
+    touch /var/run/my_process.pid
+    echo "$!" > /var/run/my_process.pid
+    echo "manage_my_process restarted"
+else
+    echo "Usage: manage_my_process {start|stop|restart}"
+fi
