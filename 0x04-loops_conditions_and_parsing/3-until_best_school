@@ -1,0 +1,11 @@
+#!/usr/bin/bash
+# Prints "Best School" 10 times
+
+counter=1
+
+until [ $counter -gt 10 ]
+do
+  echo "Best School"
+  ((counter++))
+done
+
