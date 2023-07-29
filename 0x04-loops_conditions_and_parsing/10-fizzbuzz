@@ -1,8 +1,4 @@
 #!/usr/bin/env bash
-# Displays numbers from 1 to 100, unless
-# 1 - the number is a multiple of 3 and 5, prints "FizzBuzz"
-# 2 - the number is a multiple of 3, prints "Fizz"
-# 3 - the number is a multiple of 5, prints "Buzz"
 
 counter=1
 
