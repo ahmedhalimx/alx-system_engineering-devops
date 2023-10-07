@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 # update and install nginx, then configure it to listen on port 808
 sudo apt update -y && sudo apt install nginx -y
-sudo service nginx start
-echo 'Hello World!' > /var/www/html/index.nginx-debian.html
+sudo services nginx start
+echo "Hello World!" > /var/www/html/index.nginx-debian.html
